@@ -128,8 +128,8 @@ def main():
     out_png = f"{module_name}.png"
     out_pdf = f"{module_name}.pdf"
     plt.savefig(out_png, dpi=300, bbox_inches='tight')
-    plt.savefig(out_pdf, bbox_inches='tight')
-    plt.show()
+    # plt.savefig(out_pdf, bbox_inches='tight')
+    # plt.show()
 
 if __name__ == "__main__":
     main()
