@@ -14,7 +14,13 @@ import argparse
 from natsort import natsorted
 import glob
 import os
+import re
 
+def sort_by_last_number(files):
+    def extract_num(fname):
+        m = re.search(r'(\d+)(?=\.pdf$)', fname)
+        return int(m.group(1)) if m else float('inf')
+    return sorted(files, key=extract_num)
 
 def plot_pdf(pdf_paths, out_name, render_dpi, save_dpi):
     fig, axs = plt.subplots(2, 2, figsize=(18, 12))
@@ -70,8 +76,8 @@ def main():
 
     # Take only first 4 matches
     pdf_paths = pdf_paths[:4]
-    print("Using files:\n  " + "\n  ".join(pdf_paths))
-
+    pdf_paths = sort_by_last_number(pdf_paths)
+    print("Using files (sorted by extension number):\n  " + "\n  ".join(pdf_paths))
 
     # Plot the PDFs
     plot_pdf(pdf_paths, args.out_name, args.render_dpi, args.save_dpi)
