@@ -70,7 +70,7 @@ go into the folder: `cd ~/Code/LSM_Module_Testing_Analysis/Data/DM01_DM02_DM03_H
 `python3 ../../src/Image_1.py --files avg_Image_1_High_Temp_106_*.fz --module DM03`
 
 ## 4. Image2_High_Temp
-`python3 ../../src/Image_2.py --files avg_Image_2_High_Temp_106_*_.fz --module DM03`
+`python3 ../../src/Image_2.py --files avg_Image_2_High_Temp_SR_106*_.fz --module DM03`
 
 ## 5. Image3_High_Temp
 
@@ -99,39 +99,5 @@ select the fit results to your liking (if similar, use the last set) per each mo
 
 `Image_4.py` now support wildcard match for `--files`
 
-
 `python3 ../../src/Image_4.py --files "avg_Image_4_High_Temp_*109_*.fz" --module DM13_Image4`
-
-
-------------------------------
-cd <Module_data_set>
-mkdir Analysis
-mkdir Image_1;mkdir Image_2;mkdir Image_3;mkdir Image_4;
-> python scripts, these are used for images 1, 2, and 4 mainly for column defects. 
-
-cd Image_1
-python src/Image_1.py --files Production_Modules_Data/<Module_data_set>/avg_Image_1_High_Temp_<ACM#>_*_*_*.fz --module <ModuleID>
-
-cd Image_2
-python src/Image_1.py --files Production_Modules_Data/<Module_data_set>/avg_Image_2_High_Temp_<ACM#>_*_*_*.fz --module <ModuleID>
-
-cd Image_4
-python src/Image_1.py --files Production_Modules_Data/<Module_data_set>/avg_Image_2_High_Temp_<ACM#>_*_*_*.fz --module <ModuleID>
-
-# analysis of images at low temperature
---------------------------------
-cd <Module_data_set>
-mkdir Analysis
-mkdir Image_4;
-
-> python scripts, these are used for image 4 mainly for column defects, CTI, noise and sharpness of tracks
-
-cd Image_4
-python src/Image_1.py --files Production_Modules_Data/<Module_data_set>/avg_Image_2_High_Temp_<ACM#>_*_*_*.fz --module <ModuleID>
-
-
-
-
-
-
 
